@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.dark body {
+  @apply bg-ink text-paper;
+}
+
+::selection {
+  background-color: rgba(61, 220, 132, 0.35);
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(61, 220, 132, 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(61, 220, 132, 0.55);
+}
+
+@layer utilities {
+  .glass {
+    @apply border border-white/10 bg-white/60 backdrop-blur-xl;
+  }
+  .dark .glass {
+    @apply border-white/10 bg-white/5;
+  }
+  .glass-card {
+    @apply glass rounded-2xl shadow-[0_8px_32px_rgba(15,23,42,0.06)];
+  }
+  .dark .glass-card {
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.35)];
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-android via-android-light to-android bg-clip-text text-transparent;
+  }
+  .section-eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-android/30 bg-android/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-android-dark dark:text-android;
+  }
+  .grid-bg {
+    background-image: linear-gradient(
+        to right,
+        rgba(148, 163, 184, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .focus-ring {
+    @apply outline-none ring-offset-2 ring-offset-paper focus-visible:ring-2 focus-visible:ring-android dark:ring-offset-ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
