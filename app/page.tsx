@@ -13,11 +13,13 @@ import { Footer } from "@/components/footer";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { BackToTop } from "@/components/back-to-top";
 import { LoadingScreen } from "@/components/loading-screen";
+import { RefreshHome } from "@/components/refresh-home";
 
 export default function Home() {
   return (
     <>
       <LoadingScreen />
+      <RefreshHome />
       <ScrollProgress />
       <Navbar />
       <main>

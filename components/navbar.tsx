@@ -6,15 +6,21 @@ import { Download, Menu, X } from "lucide-react";
 import { navLinks, personal } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { getResumeDownloadName } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [downloadName, setDownloadName] = useState("Aashish_Vishavkarma.pdf");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setDownloadName(getResumeDownloadName());
   }, []);
 
   return (
@@ -49,7 +55,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
-          <a href={personal.resumeUrl} download>
+          <a href={personal.resumeUrl} download={downloadName}>
             <Button variant="outline" size="sm">
               <Download size={14} /> CV
             </Button>

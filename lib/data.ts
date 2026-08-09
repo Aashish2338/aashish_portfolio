@@ -30,6 +30,7 @@ export const aboutHighlights = [
   "Kotlin & Java",
   "Jetpack Compose",
   "Kotlin Multiplatform (KMP)",
+  "Dagger & Hilt",
   "MVVM & Clean Architecture",
   "Coroutines & Flow",
   "Ktor & Retrofit",
@@ -40,6 +41,9 @@ export const aboutHighlights = [
   "Google Maps SDK",
   "Payment gateway integration",
   "REST API integration",
+  "Navigation component",
+  "AI & ML integration",
+  "AI Tools(Codex, OpenAI, ChatGPT, Gemini, Claude)",
 ];
 
 export type SkillCategory = {
@@ -125,6 +129,8 @@ export type Project = {
   category: ProjectCategory;
   description: string;
   tech: string[];
+  playStoreUrl?: string;
+  iconUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -133,42 +139,87 @@ export const projects: Project[] = [
     category: "Education",
     description:
       "A learning companion app built for structured, scalable access to educational content with a focus on smooth navigation and offline-friendly design.",
-    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase"],
+    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase", "Ktor", "Coroutines", "Flow", "Navigation", ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.auro.application",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/mWnLYyzE6jORfZEMyMl8kieVaQY7_VeryxdDl2n1usW2Y0IhqA3SLOx5elFAnRFY2bGoqJYVXr0CM_Hpea0jpec=s512-rw",
+  },
+  {
+    name: "My Learning Assessment",
+    category: "Education",
+    description:
+      "My Learning Assessment is a revolutionary mobile application that empowers K–12 students to enhance their learning outcomes through short, curriculum-aligned quizzes, performance analytics, and insightful feedback.",
+    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase", "Ktor", "Coroutines", "Flow", "Navigation", ],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.mla.application",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/NiIds2AA3V1XP5Gv1iftHosNvm2vvWZam4DZHZ0HiMmjtKzoBj1Oxg5m0Iceh4TlDP03v_vFfR35Ob4iMqICkw=s512-rw",
   },
   {
     name: "Project Inclusion",
     category: "Education",
     description:
       "An accessibility-first Android application designed to widen access to learning resources for diverse user groups.",
-    tech: ["Kotlin", "Jetpack Compose", "Clean Architecture", "Retrofit"],
+    tech: ["Kotlin", "Jetpack Compose", "Clean Architecture", "Retrofit", "Ktor", "Coroutines", "Flow", "Navigation", ],
+    playStoreUrl:
+      "https://play.google.com/store/search?q=project+inclusion+app&c=apps",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/7W6wEXLo6D_tHndO5TZD8XW-pUz_-gavC3hx5_hG5h-KHy6o7pdseNgpzIgr9TZQGhJRoYBZ-njig1jqR4DxmHE=s512-rw",
   },
   {
     name: "SNC Rider",
     category: "Logistics",
     description:
       "Rider-facing logistics app handling real-time delivery assignments, route tracking, and status updates at scale.",
-    tech: ["Kotlin", "Google Maps SDK", "Coroutines", "Firebase"],
+    tech: ["Kotlin", "Google Maps SDK", "Coroutines", "Firebase", "Rest API", "XML"],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.xtracover.Sellncashrider.app",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/xwP0_lLp0YMG9t591XgHAXo8edG_ENRmAdgAnKKEGmS3RHGSAwfByLqZaFXSWhblsUbpJ1HqiS-ZrnnbIw7qow=s512-rw",
   },
   {
     name: "SNC Partner",
     category: "Logistics",
     description:
       "Partner-facing counterpart to SNC Rider, built for fleet and delivery-partner management with live tracking.",
-    tech: ["Kotlin", "MVVM", "Retrofit", "Room"],
+    tech: ["Kotlin", "MVVM", "Retrofit", "Room", "Rest API", "XML"],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.xtracover.Sellncashpartner.app",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/7_73riw9fiG2VLj5jJyOpmrFu00n3kFF2HEPBN5rM8R87EtvLdfYLn38X6eLSgQzokDb0UUcnRbp5vQJeFGb=s512-rw",
+  },
+  {
+    name: "SNC Partner Rider",
+    category: "Logistics",
+    description:
+      "SellNCash mobile exchange for instant cash. Just sell your phone & get instant payment. SellNcash is India's leading mobile resale platform. Sell your old mobile today. Free doorstep Pickup.",
+    tech: ["Kotlin", "MVVM", "Retrofit", "Room", "Rest API", "XML"],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.xtracover.Sellncashpartnerrider.app",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/0GRbIY0AU9tVZ-mi8uIDzsQu5BpLJOij8fcQUDMFMVF8d_gdZQNhaVrnKuKN_vFAjZ5HElfLS4efs2UJuo__mw=s512-rw",
   },
   {
     name: "Courier Mitra",
     category: "Logistics",
     description:
-      "A courier management application streamlining pickup, delivery, and dispatch workflows for logistics teams.",
+      "Electronic Signature & GPS Coordinate Capture Verification personnel can collect signatures directly on their Smartphone. Alternatively they can add photos from the app, using the Smartphone’s camera at the destination. A courier management application streamlining pickup, delivery, and dispatch workflows for logistics teams.",
     tech: ["Kotlin", "Ktor", "Hilt", "Navigation"],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=sipl.couriermitra",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/Aqa6bjlbrbXWmbYds0D5d8zZNNpFdL2GigVN3BlwUwBZEHkPHxHwBgf45hwwSuJbaNpc7RYkzSTYxHGX10048g=s512-rw",
   },
   {
     name: "AUM Express",
     category: "Enterprise",
     description:
-      "An enterprise-grade express delivery platform built for reliability and scale across a large user base.",
+      "This application saves your valuable time by automating proof of verification. When your personnel upload the information upon verification, record is automatically generated and securely accessible from the web interface. Reports include any signatures or photos collected along with other details. An enterprise-grade express delivery platform built for reliability and scale across a large user base.",
     tech: ["Kotlin", "Jetpack Compose", "CI/CD", "Payment Gateway"],
+     playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.sipl.aumexpressapp",
+    iconUrl:
+      "https://play-lh.googleusercontent.com/vwcNFKIZCqxc08NqBfIUB_mouNbNPTk2rBRVXUrXV8QFoEBxWXNUUivpzhWTqEIrfmUIliW5Am1rzi4OTDoFPA=s512-rw",
   },
 ];
 

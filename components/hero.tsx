@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Mail } from "lucide-react";
 import { personal } from "@/lib/data";
 import { Button } from "@/components/ui/button";
+import { getResumeDownloadName } from "@/lib/utils";
 
 const floatingChips = [
   { label: "Android", className: "left-[6%] top-[22%]", delay: 0 },
@@ -49,6 +50,11 @@ function useTypingEffect(words: string[]) {
 
 export function Hero() {
   const typed = useTypingEffect(personal.taglineRoles);
+  const [downloadName, setDownloadName] = useState("Aashish_Vishavkarma.pdf");
+
+  useEffect(() => {
+    setDownloadName(getResumeDownloadName());
+  }, []);
 
   return (
     <section
@@ -124,7 +130,7 @@ export function Hero() {
             <a href="#contact">
               <Button size="lg">Hire me</Button>
             </a>
-            <a href={personal.resumeUrl} download>
+            <a href={personal.resumeUrl} download={downloadName}>
               <Button variant="outline" size="lg">
                 <Download size={16} /> Download resume
               </Button>

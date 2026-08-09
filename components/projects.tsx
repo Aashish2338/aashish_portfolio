@@ -53,10 +53,31 @@ export function Projects() {
               className="glass-card group flex flex-col overflow-hidden"
             >
               <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-ink-slate to-ink">
-                <Smartphone
-                  className="text-android/70 transition-transform duration-300 group-hover:scale-110"
-                  size={40}
-                />
+                {project.iconUrl ? (
+                  <a
+                    href={project.playStoreUrl ?? "#"}
+                    onClick={(e) => !project.playStoreUrl && e.preventDefault()}
+                    target={project.playStoreUrl ? "_blank" : undefined}
+                    rel={project.playStoreUrl ? "noopener noreferrer" : undefined}
+                    aria-label={`${project.name} on Google Play`}
+                    title={project.playStoreUrl ? "Open in Google Play" : undefined}
+                    className="transition-transform duration-300 hover:scale-110"
+                  >
+                    <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg sm:h-24 sm:w-24">
+                      <img
+                        src={project.iconUrl}
+                        alt={`${project.name} app icon`}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </a>
+                ) : (
+                  <Smartphone
+                    className="text-android/70 transition-transform duration-300 group-hover:scale-110"
+                    size={40}
+                  />
+                )}
               </div>
 
               <div className="flex flex-1 flex-col p-5">
@@ -84,8 +105,10 @@ export function Projects() {
 
                 <div className="mt-5 flex items-center gap-3 border-t border-ink/10 pt-4 dark:border-white/10">
                   <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
+                    href={project.playStoreUrl ?? "#"}
+                    onClick={(e) => !project.playStoreUrl && e.preventDefault()}
+                    target={project.playStoreUrl ? "_blank" : undefined}
+                    rel={project.playStoreUrl ? "noopener noreferrer" : undefined}
                     aria-label={`${project.name} on Google Play`}
                     className="focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 text-ink/60 hover:border-android hover:text-android-dark dark:border-white/10 dark:text-paper/60"
                   >
