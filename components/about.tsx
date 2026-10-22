@@ -7,25 +7,36 @@ import { Badge } from "@/components/ui/badge";
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const inView = useInView(ref, { once: true, amount: 0.2 });
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!inView) return;
+    setHasStarted(true);
+    let frameId: number;
     const duration = 1200;
     const start = performance.now();
 
     const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      setCount(Math.round(progress * value));
-      if (progress < 1) requestAnimationFrame(tick);
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(easeOut * value));
+      if (progress < 1) {
+        frameId = requestAnimationFrame(tick);
+      }
     };
-    requestAnimationFrame(tick);
+    frameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameId);
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-display text-3xl font-semibold text-android-dark dark:text-android">
-      {count}
+    <span
+      ref={ref}
+      className="inline-block font-display text-3xl font-semibold text-android-dark dark:text-android"
+    >
+      {hasStarted ? count : value}
       {suffix}
     </span>
   );

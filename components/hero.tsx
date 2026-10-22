@@ -18,32 +18,48 @@ const floatingChips = [
 
 function useTypingEffect(words: string[]) {
   const [index, setIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
+  const [text, setText] = useState(words[0] ?? "");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
 
   useEffect(() => {
-    const current = words[index % words.length];
-    const speed = deleting ? 35 : 70;
+    if (!words || words.length === 0) return;
 
-    const timeout = setTimeout(() => {
-      if (!deleting) {
-        const next = current.slice(0, text.length + 1);
-        setText(next);
-        if (next === current) {
-          setTimeout(() => setDeleting(true), 1200);
+    const currentWord = words[index % words.length] ?? "";
+
+    if (isPaused) {
+      const pauseDuration = isDeleting ? 400 : 2000;
+      const timer = setTimeout(() => {
+        setIsPaused(false);
+        if (!isDeleting && text === currentWord) {
+          setIsDeleting(true);
+        } else if (isDeleting && text === "") {
+          setIsDeleting(false);
+          setIndex((prev) => (prev + 1) % words.length);
+        }
+      }, pauseDuration);
+      return () => clearTimeout(timer);
+    }
+
+    const typingSpeed = isDeleting ? 30 : 65;
+    const timer = setTimeout(() => {
+      if (isDeleting) {
+        const nextText = currentWord.slice(0, text.length - 1);
+        setText(nextText);
+        if (nextText === "") {
+          setIsPaused(true);
         }
       } else {
-        const next = current.slice(0, text.length - 1);
-        setText(next);
-        if (next === "") {
-          setDeleting(false);
-          setIndex((i) => i + 1);
+        const nextText = currentWord.slice(0, text.length + 1);
+        setText(nextText);
+        if (nextText === currentWord) {
+          setIsPaused(true);
         }
       }
-    }, speed);
+    }, typingSpeed);
 
-    return () => clearTimeout(timeout);
-  }, [text, deleting, index, words]);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, isPaused, index, words]);
 
   return text;
 }
