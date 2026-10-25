@@ -11,7 +11,7 @@ export const personal = {
   // TODO: replace with real contact details before deploying
   email: "aashish2338@gmail.com",
   phone: "+91 98385 69932",
-  location: "Noida U.P., India",
+  location: "Gurgaon Haryana, India",
   github: "https://github.com/Aashish2338",
   linkedin: "https://www.linkedin.com/in/aashish-vishavkarma-128650177/",
   resumeUrl: "/resume.pdf",
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     category: "Education",
     description:
       "A learning companion app built for structured, scalable access to educational content with a focus on smooth navigation and offline-friendly design.",
-    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase", "Ktor", "Coroutines", "Flow", "Navigation", ],
+    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase", "Ktor", "Coroutines", "Flow", "Navigation",],
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.auro.application",
     iconUrl:
       "https://play-lh.googleusercontent.com/mWnLYyzE6jORfZEMyMl8kieVaQY7_VeryxdDl2n1usW2Y0IhqA3SLOx5elFAnRFY2bGoqJYVXr0CM_Hpea0jpec=s512-rw",
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     category: "Education",
     description:
       "My Learning Assessment is a revolutionary mobile application that empowers K–12 students to enhance their learning outcomes through short, curriculum-aligned quizzes, performance analytics, and insightful feedback.",
-    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase", "Ktor", "Coroutines", "Flow", "Navigation", ],
+    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Firebase", "Ktor", "Coroutines", "Flow", "Navigation",],
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.mla.application",
     iconUrl:
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     category: "Education",
     description:
       "An accessibility-first Android application designed to widen access to learning resources for diverse user groups.",
-    tech: ["Kotlin", "Jetpack Compose", "Clean Architecture", "Retrofit", "Ktor", "Coroutines", "Flow", "Navigation", ],
+    tech: ["Kotlin", "Jetpack Compose", "Clean Architecture", "Retrofit", "Ktor", "Coroutines", "Flow", "Navigation",],
     playStoreUrl:
       "https://play.google.com/store/search?q=project+inclusion+app&c=apps",
     iconUrl:
@@ -216,7 +216,7 @@ export const projects: Project[] = [
     description:
       "This application saves your valuable time by automating proof of verification. When your personnel upload the information upon verification, record is automatically generated and securely accessible from the web interface. Reports include any signatures or photos collected along with other details. An enterprise-grade express delivery platform built for reliability and scale across a large user base.",
     tech: ["Kotlin", "Jetpack Compose", "CI/CD", "Payment Gateway"],
-     playStoreUrl:
+    playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.sipl.aumexpressapp",
     iconUrl:
       "https://play-lh.googleusercontent.com/vwcNFKIZCqxc08NqBfIUB_mouNbNPTk2rBRVXUrXV8QFoEBxWXNUUivpzhWTqEIrfmUIliW5Am1rzi4OTDoFPA=s512-rw",
