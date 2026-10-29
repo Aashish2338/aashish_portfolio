@@ -27,7 +27,7 @@ export function Skills() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
               whileHover={{ y: -6 }}
-              className="glass-card group p-6 transition-shadow hover:shadow-[0_0_32px_rgba(61,220,132,0.18)]"
+              className="glass-card group p-6 transition-all duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_32px_rgba(0,242,254,0.22)]"
             >
               <h3 className="font-display text-base font-semibold">
                 {cat.title}

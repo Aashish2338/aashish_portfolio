@@ -16,14 +16,20 @@ const config: Config = {
     extend: {
       colors: {
         android: {
-          DEFAULT: "#3DDC84",
-          light: "#6EEBA8",
-          dark: "#2BB86E",
+          DEFAULT: "#00F2FE",
+          light: "#67E8F9",
+          dark: "#0891B2",
+        },
+        cyan: {
+          DEFAULT: "#00F2FE",
+          glow: "#38BDF8",
+          dark: "#0891B2",
+          light: "#A5F3FC",
         },
         ink: {
-          DEFAULT: "#0F172A",
-          soft: "#111827",
-          slate: "#1E293B",
+          DEFAULT: "#030712",
+          soft: "#060A14",
+          slate: "#0B1220",
         },
         paper: "#F8FAFC",
         muted: "#94A3B8",
@@ -34,9 +40,9 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-slate":
-          "linear-gradient(to right, rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.08) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(0,242,254,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,242,254,0.06) 1px, transparent 1px)",
         "glow-radial":
-          "radial-gradient(circle at center, rgba(61,220,132,0.18), transparent 70%)",
+          "radial-gradient(circle at center, rgba(0,242,254,0.22), transparent 70%)",
       },
       backgroundSize: {
         grid: "40px 40px",

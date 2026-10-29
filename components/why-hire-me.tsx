@@ -34,9 +34,9 @@ export function WhyHireMe() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="flex items-center gap-2.5 rounded-xl border border-ink/10 bg-ink/5 px-4 py-3 dark:border-white/10 dark:bg-white/5"
+                  className="flex items-center gap-2.5 rounded-xl border px-4 py-3 transition-all border-cyan-600/15 bg-white/80 shadow-[0_2px_12px_rgba(8,145,178,0.06)] hover:border-cyan-500/30 hover:shadow-[0_4px_16px_rgba(8,145,178,0.1)] dark:border-cyan-500/15 dark:bg-[#060D1A]/80 dark:shadow-[0_0_12px_rgba(0,242,254,0.06)] dark:hover:border-cyan-400/30"
                 >
-                  <Check size={16} className="shrink-0 text-android-dark dark:text-android" />
+                  <Check size={16} className="shrink-0 text-cyan-700 dark:text-cyan-400" />
                   <span className="text-sm font-medium">{reason}</span>
                 </motion.div>
               ))}

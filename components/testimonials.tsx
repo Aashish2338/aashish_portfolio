@@ -29,7 +29,7 @@ export function Testimonials() {
 
         <div className="relative mx-auto mt-12 max-w-2xl">
           <div className="glass-card min-h-[220px] p-10 text-center">
-            <Quote className="mx-auto text-android/50" size={28} />
+            <Quote className="mx-auto text-cyan-700/50 dark:text-cyan-400/60" size={28} />
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
@@ -57,14 +57,14 @@ export function Testimonials() {
             onClick={() =>
               setIndex((i) => (i - 1 + testimonials.length) % testimonials.length)
             }
-            className="focus-ring absolute left-0 top-1/2 -translate-x-4 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 bg-paper text-ink/60 dark:border-white/10 dark:bg-ink dark:text-paper/60"
+            className="focus-ring absolute left-0 top-1/2 -translate-x-4 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border transition-all border-slate-300 bg-white text-slate-500 hover:border-cyan-600 hover:text-cyan-700 dark:border-white/10 dark:bg-[#060D1A] dark:text-paper/60 dark:hover:border-cyan-400 dark:hover:text-cyan-300"
           >
             <ChevronLeft size={16} />
           </button>
           <button
             aria-label="Next testimonial"
             onClick={() => setIndex((i) => (i + 1) % testimonials.length)}
-            className="focus-ring absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 bg-paper text-ink/60 dark:border-white/10 dark:bg-ink dark:text-paper/60"
+            className="focus-ring absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 flex h-9 w-9 items-center justify-center rounded-full border transition-all border-slate-300 bg-white text-slate-500 hover:border-cyan-600 hover:text-cyan-700 dark:border-white/10 dark:bg-[#060D1A] dark:text-paper/60 dark:hover:border-cyan-400 dark:hover:text-cyan-300"
           >
             <ChevronRight size={16} />
           </button>
@@ -76,7 +76,9 @@ export function Testimonials() {
                 aria-label={`Go to testimonial ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`h-1.5 rounded-full transition-all ${
-                  i === index ? "w-6 bg-android" : "w-1.5 bg-ink/20 dark:bg-white/20"
+                  i === index
+                    ? "w-6 bg-cyan-400 shadow-[0_0_10px_rgba(0,242,254,0.6)]"
+                    : "w-1.5 bg-ink/20 dark:bg-white/20"
                 }`}
               />
             ))}

@@ -30,6 +30,12 @@ export const aboutHighlights = [
   "Kotlin & Java",
   "Jetpack Compose",
   "Kotlin Multiplatform (KMP)",
+  "JavaScript",
+  "NodeJS",
+  "NextJS",
+  "TypeScript",
+  "HTML & CSS",
+  "Spring Boot",
   "Dagger & Hilt",
   "MVVM & Clean Architecture",
   "Coroutines & Flow",
@@ -53,31 +59,31 @@ export type SkillCategory = {
 };
 
 export const skillCategories: SkillCategory[] = [
-  { title: "Programming", level: 95, items: ["Kotlin", "Java", "Spring-Boot", "Hibernate", "JPA"] },
+  { title: "Programming", level: 95, items: ["Kotlin", "Java", "Spring-Boot", "Hibernate", "JPA", "JavaScript", "NextJS", "NodeJS", "TypeScript"] },
   {
     title: "Android",
     level: 96,
-    items: ["Jetpack Compose", "XML", "Android SDK", "Material Design 3"],
+    items: ["Jetpack Compose", "XML", "Android SDK", "Material Design 3", "Android Architecture Components", "Android Jetpack", "Android Animations"],
   },
   {
     title: "Architecture",
     level: 92,
-    items: ["MVVM", "Clean Architecture", "MVP", "MVC"],
+    items: ["MVVM", "Clean Architecture", "MVP", "MVC", "Unidirectional Data Flow(UDF)", "Modular Architecture"],
   },
   {
     title: "Libraries",
     level: 90,
-    items: ["Coroutines", "Flow", "Retrofit", "Ktor", "Room", "Navigation", "Paging"],
+    items: ["Coroutines", "Flow", "Retrofit", "Ktor", "Room", "Navigation", "Paging", "Jetpack DataStore", "Jetpack Compose Paging 3"],
   },
   {
     title: "Dependency Injection",
     level: 85,
-    items: ["Hilt", "Dagger", "Koin"],
+    items: ["Hilt", "Dagger", "Koin(Kapt)", "Koin(KSP)", "Manual DI"],
   },
   {
     title: "Firebase",
     level: 88,
-    items: ["Analytics", "Crashlytics", "Push Notification"],
+    items: ["Analytics", "Crashlytics", "Push Notification", "Auth", "FCM", "Storage", "Firestore", "Realtime Database"],
   },
   {
     title: "Tools",
@@ -131,9 +137,19 @@ export type Project = {
   tech: string[];
   playStoreUrl?: string;
   iconUrl?: string;
+  status?: string;
 };
 
 export const projects: Project[] = [
+  {
+    name: "FinTrack",
+    category: "Finance",
+    status: "In Progress",
+    description:
+      "A next-gen personal finance and expense analytics mobile app with real-time budget forecasting, payment gateway integration, and biometric authentication.",
+    tech: ["Kotlin", "Jetpack Compose", "Coroutines", "Flow", "Room", "Clean Architecture", "Payment Gateway"],
+    iconUrl: "/fintrack_icon.jpg",
+  },
   {
     name: "AuroScholar",
     category: "Education",
@@ -243,6 +259,21 @@ export const services: Service[] = [
       "End-to-end native Android apps built on Kotlin and modern Android SDK best practices.",
   },
   {
+    title: "Web development",
+    description:
+      "Modern, responsive web applications built with Next.js, React, TypeScript, and clean UI/UX.",
+  },
+  {
+    title: "Backend development",
+    description:
+      "Scalable server-side architectures, RESTful APIs, and secure database solutions powered by Spring Boot and Node.js.",
+  },
+  {
+    title: "Code deployment",
+    description:
+      "Automated CI/CD pipelines, build workflows, and seamless deployment across cloud platforms and app stores.",
+  },
+  {
     title: "Jetpack Compose migration",
     description:
       "Migrating legacy XML-based UI codebases to declarative, maintainable Jetpack Compose.",
@@ -281,6 +312,10 @@ export const services: Service[] = [
 
 export const whyHireMe = [
   "5+ years experience",
+  "Android Development",
+  "Web Development",
+  "Backend Developer",
+  "Code Deployment",
   "Clean architecture",
   "Production apps",
   "Compose expert",
@@ -302,21 +337,21 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Delivered a complex Compose migration ahead of schedule without a single regression in production.",
-    name: "Placeholder reviewer",
+    name: "Arpit Sharma",
     title: "Product manager",
     group: "Manager",
   },
   {
     quote:
       "One of the most reliable Android engineers I've worked with — architecture decisions always held up as the app scaled.",
-    name: "Placeholder reviewer",
+    name: "Shaili Saini",
     title: "Engineering lead",
     group: "Team",
   },
   {
     quote:
       "Understood our business needs quickly and translated them into a clean, performant mobile experience.",
-    name: "Placeholder reviewer",
+    name: "Greenusys Technologies",
     title: "Client",
     group: "Client",
   },

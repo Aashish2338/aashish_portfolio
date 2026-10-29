@@ -10,11 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-android text-ink shadow-[0_0_0_0_rgba(61,220,132,0.5)] hover:shadow-[0_0_24px_4px_rgba(61,220,132,0.35)] hover:-translate-y-0.5",
+          "bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-semibold shadow-[0_4px_16px_rgba(8,145,178,0.25)] hover:shadow-[0_6px_22px_rgba(8,145,178,0.4)] dark:from-cyan-400 dark:to-cyan-500 dark:text-[#030712] dark:shadow-[0_0_20px_rgba(0,242,254,0.35)] dark:hover:shadow-[0_0_30px_rgba(0,242,254,0.6)] hover:-translate-y-0.5",
         outline:
-          "border border-ink/15 bg-transparent text-ink hover:border-android hover:text-android-dark dark:border-white/15 dark:text-paper dark:hover:text-android dark:hover:border-android",
+          "border border-slate-300 bg-white/60 text-slate-800 hover:border-cyan-600 hover:text-cyan-700 hover:bg-cyan-50/60 dark:border-white/15 dark:bg-transparent dark:text-paper dark:hover:text-cyan-300 dark:hover:border-cyan-400 dark:hover:shadow-[0_0_15px_rgba(0,242,254,0.2)]",
         ghost:
-          "bg-transparent text-ink hover:bg-ink/5 dark:text-paper dark:hover:bg-white/5",
+          "bg-transparent text-slate-800 hover:bg-cyan-50 hover:text-cyan-700 dark:text-paper dark:hover:bg-cyan-500/10 dark:hover:text-cyan-300",
       },
       size: {
         default: "h-11 px-6",

@@ -38,7 +38,7 @@ export function Navbar() {
         }`}
       >
         <a href="#home" className="font-display text-lg font-semibold">
-          AV<span className="text-android">.</span>
+          AV<span className="text-cyan-700 dark:text-android">.</span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">

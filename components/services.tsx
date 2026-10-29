@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import {
+  CloudUpload,
   Code2,
   GitPullRequestArrow,
+  Globe,
   Layers,
+  LucideIcon,
   Rocket,
+  Server,
   Sparkles,
   Users,
   Wrench,
@@ -13,7 +17,34 @@ import {
 } from "lucide-react";
 import { services } from "@/lib/data";
 
-const icons = [Rocket, Layers, Sparkles, Wrench, GitPullRequestArrow, Zap, Code2, Users];
+const serviceIcons: Record<string, LucideIcon> = {
+  "Android app development": Rocket,
+  "Web development": Globe,
+  "Backend development": Server,
+  "Backend Developer": Server,
+  "Code deployment": CloudUpload,
+  "Jetpack Compose migration": Layers,
+  "Kotlin Multiplatform": Sparkles,
+  "Android architecture": Wrench,
+  "Code review": GitPullRequestArrow,
+  "Performance optimization": Zap,
+  "Consultation": Code2,
+  "Mentorship": Users,
+};
+
+const fallbackIcons: LucideIcon[] = [
+  Rocket,
+  Globe,
+  Server,
+  CloudUpload,
+  Layers,
+  Sparkles,
+  Wrench,
+  GitPullRequestArrow,
+  Zap,
+  Code2,
+  Users,
+];
 
 export function Services() {
   return (
@@ -28,7 +59,7 @@ export function Services() {
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, i) => {
-            const Icon = icons[i % icons.length];
+            const Icon = serviceIcons[service.title] ?? fallbackIcons[i % fallbackIcons.length];
             return (
               <motion.div
                 key={service.title}

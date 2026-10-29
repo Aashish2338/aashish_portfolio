@@ -14,10 +14,12 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { BackToTop } from "@/components/back-to-top";
 import { LoadingScreen } from "@/components/loading-screen";
 import { RefreshHome } from "@/components/refresh-home";
+import { CometCursor } from "@/components/comet-cursor";
 
 export default function Home() {
   return (
     <>
+      <CometCursor />
       <LoadingScreen />
       <RefreshHome />
       <ScrollProgress />

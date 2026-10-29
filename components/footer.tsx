@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="relative border-t border-ink/10 py-12 dark:border-white/10">
       <div className="container flex flex-col items-center gap-6 text-center">
         <a href="#home" className="font-display text-lg font-semibold">
-          AV<span className="text-android">.</span>
+          AV<span className="text-cyan-700 dark:text-android">.</span>
         </a>
 
         <nav className="flex flex-wrap justify-center gap-6">
@@ -42,7 +42,7 @@ export function Footer() {
 
         <p className="text-xs text-ink/50 dark:text-paper/50">
           &copy; {new Date().getFullYear()} {personal.name}. Made with{" "}
-          <span className="text-android">&hearts;</span> using Next.js.
+          <span className="text-cyan-700 dark:text-android">&hearts;</span> using Next.js.
         </p>
       </div>
     </footer>
