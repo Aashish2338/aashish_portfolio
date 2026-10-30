@@ -18,7 +18,7 @@ export const personal = {
   linkedin: "https://www.linkedin.com/in/aashish-vishavkarma-128650177/",
   resumeUrl: "/resume.pdf",
   summary:
-    "Senior Software Developer with 5+ years building production-grade mobile and web experiences using Kotlin, Java, JavaScript, and modern frameworks. Specializes in Kotlin Multiplatform, clean MVVM architecture, and scalable apps consumed by hundreds of thousands of users, backed by strong CI/CD and testing practices.",
+    "Senior Software Developer with 5 years building production-grade mobile, backend and web experiences using Kotlin, Java, SpringBoot, JavaScript, ReactJS and modern frameworks. Specializes in Kotlin Multiplatform, clean MVVM architecture, and scalable apps consumed by hundreds of thousands of users, backed by strong CI/CD and testing practices.",
 };
 
 export const stats = [

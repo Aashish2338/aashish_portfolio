@@ -69,7 +69,7 @@ export function About() {
         >
           <p className="section-eyebrow">About me</p>
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-            Building Android products people rely on
+            Building Android, web and backend products people rely on
           </h2>
           <p className="mt-5 text-base leading-relaxed text-ink/70 dark:text-paper/70">
             {personal.summary}
