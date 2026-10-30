@@ -1,8 +1,10 @@
 export const personal = {
   name: "Aashish Vishavkarma",
-  role: "Senior Android Developer",
+  role: "Software Developer",
   taglineRoles: [
     "Android Developer",
+    "Web Developer",
+    "Backend Developer",
     "Jetpack Compose Expert",
     "Kotlin Multiplatform Developer",
     "Mobile Architect",
@@ -11,12 +13,12 @@ export const personal = {
   // TODO: replace with real contact details before deploying
   email: "aashish2338@gmail.com",
   phone: "+91 98385 69932",
-  location: "Gurgaon Haryana, India",
+  location: "Gurgaon, Haryana, India",
   github: "https://github.com/Aashish2338",
   linkedin: "https://www.linkedin.com/in/aashish-vishavkarma-128650177/",
   resumeUrl: "/resume.pdf",
   summary:
-    "Senior Android Developer with 5+ years building production-grade mobile experiences using Kotlin, Java, and Jetpack Compose. Specializes in Kotlin Multiplatform, clean MVVM architecture, and scalable apps consumed by hundreds of thousands of users, backed by strong CI/CD and testing practices.",
+    "Senior Software Developer with 5+ years building production-grade mobile and web experiences using Kotlin, Java, JavaScript, and modern frameworks. Specializes in Kotlin Multiplatform, clean MVVM architecture, and scalable apps consumed by hundreds of thousands of users, backed by strong CI/CD and testing practices.",
 };
 
 export const stats = [
@@ -107,7 +109,7 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     company: "Sri Aurobindo Society",
-    role: "Senior Android Developer",
+    role: "Senior Android/Web/Backend Developer",
     period: "Sept 2024 – Present",
     current: true,
   },

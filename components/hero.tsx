@@ -9,11 +9,13 @@ import { getResumeDownloadName } from "@/lib/utils";
 
 const floatingChips = [
   { label: "Android", className: "left-[6%] top-[22%]", delay: 0 },
+  { label: "Web", className: "left-[40%] top-[22%]", delay: 0.3},
+  { label: "Backend", className: "left-[50%] top-[20%]", delay: 1 },
   { label: "Kotlin", className: "right-[8%] top-[18%]", delay: 0.6 },
   { label: "Jetpack Compose", className: "left-[10%] bottom-[26%]", delay: 1.2 },
   { label: "Firebase", className: "right-[6%] bottom-[30%]", delay: 1.8 },
   { label: "KMP", className: "left-[22%] top-[8%]", delay: 2.4 },
-  { label: "Material Icons", className: "right-[20%] bottom-[10%]", delay: 3 },
+  { label: "Material Icons", className: "right-[20%] bottom-[8%]", delay: 3 },
 ];
 
 function useTypingEffect(words: string[]) {
