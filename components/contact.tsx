@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { CheckCircle2, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { personal } from "@/lib/data";
+import { getEmailJsConfig } from "@/lib/emailjs-config";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -33,23 +34,44 @@ export function Contact() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
   const [sent, setSent] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!sent) return;
+
+    const timeout = window.setTimeout(() => setSent(false), 4000);
+    return () => window.clearTimeout(timeout);
+  }, [sent]);
 
   const onSubmit = async (data: FormValues) => {
+    setSubmissionError(null);
+    const config = getEmailJsConfig({
+      serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+    });
+
+    if (!config) {
+      setSubmissionError(
+        `The contact form is not configured. Please email me at ${personal.email}.`,
+      );
+      return;
+    }
+
     try {
-      // Replace with your EmailJS service ID, template ID, and public key.
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
-
-      if (serviceId && templateId && publicKey) {
-        await emailjs.send(serviceId, templateId, { ...data }, publicKey);
-      }
-
+      await emailjs.send(
+        config.serviceId,
+        config.templateId,
+        data,
+        config.publicKey,
+      );
       setSent(true);
       reset();
-      setTimeout(() => setSent(false), 4000);
     } catch (err) {
       console.error("EmailJS error:", err);
+      setSubmissionError(
+        `Your message could not be sent. Please try again or email me at ${personal.email}.`,
+      );
     }
   };
 
@@ -173,6 +195,11 @@ export function Contact() {
             <Button type="submit" size="lg" disabled={isSubmitting} className="w-full">
               <Send size={16} /> {isSubmitting ? "Sending..." : "Send message"}
             </Button>
+            {submissionError && (
+              <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+                {submissionError}
+              </p>
+            )}
           </form>
         </motion.div>
       </div>

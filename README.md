@@ -29,8 +29,8 @@ A few things are intentionally left as placeholders — fill these in first:
 3. Copy `.env.example` to `.env.local` and fill in your service ID,
    template ID, and public key.
 
-Without these env vars set, the form will still show the success
-animation locally but won't actually send mail.
+If these environment variables are missing, the form will show an error
+instead of reporting a false success and will provide your direct email address.
 
 ## Local development
 
