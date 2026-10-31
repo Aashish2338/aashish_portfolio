@@ -17,9 +17,18 @@ export function WhyHireMe() {
                 A senior engineer who ships and stays maintainable
               </h2>
               <p className="mt-4 text-ink/70 dark:text-paper/70">
-                Five years of production Android work, distilled into a
-                straightforward promise: clean architecture, real scale, and
-                code your next engineer will thank you for.
+                I bring 5 years of hands-on experience building
+                production-ready applications, combining strong Android
+                engineering with modern web and backend development. From Kotlin
+                and Jetpack Compose to Next.js and Spring Boot, I focus on
+                writing clean, scalable, and maintainable code that solves
+                real-world problems.
+              </p>
+              <p className="mt-3 text-ink/70 dark:text-paper/70">
+                I take ownership beyond implementation — making thoughtful
+                architectural decisions, optimizing performance, collaborating
+                across teams, and delivering solutions built to evolve with
+                business needs.
               </p>
               <a href="#contact" className="mt-8 inline-block">
                 <Button size="lg">Hire me</Button>

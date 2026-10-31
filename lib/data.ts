@@ -325,6 +325,8 @@ export const whyHireMe = [
   "Scalable apps",
   "API integration",
   "Enterprise experience",
+  "Payment gateway integration",
+  "CI/CD pipelines",
 ];
 
 export type Testimonial = {

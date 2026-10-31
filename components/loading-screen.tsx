@@ -5,12 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Activity,
   CheckCircle2,
-  Cpu,
   Globe,
   Layers,
   Server,
   Smartphone,
-  Sparkles,
   Terminal,
   Workflow,
   Zap,
@@ -188,7 +186,7 @@ export function LoadingScreen() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-widest text-android font-medium">
-                    // System Initializing
+                    {"// System Initializing"}
                   </p>
                   <h3 className="font-display text-lg font-semibold text-white mt-0.5">
                     Mounting Developer Architecture

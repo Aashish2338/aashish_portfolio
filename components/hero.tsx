@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 import { personal } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { getResumeDownloadName } from "@/lib/utils";
@@ -191,9 +192,15 @@ export function Hero() {
         >
           <div className="absolute inset-0 animate-glow rounded-full bg-cyan-400/15 dark:bg-cyan-400/25 blur-3xl pointer-events-none" />
           <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full border-2 backdrop-blur-xl transition-all duration-300 border-cyan-600/30 bg-gradient-to-br from-white via-cyan-50 to-teal-50 shadow-[0_12px_40px_rgba(8,145,178,0.15)] dark:border-cyan-400/50 dark:bg-gradient-to-br dark:from-[#0B1528] dark:via-[#050A14] dark:to-[#020408] dark:shadow-[0_0_60px_rgba(0,242,254,0.25)]">
-            <div className="flex h-[92%] w-[92%] items-center justify-center rounded-full text-6xl font-display font-semibold bg-gradient-to-br from-slate-900 via-cyan-800 to-teal-700 dark:from-white dark:via-cyan-200 dark:to-cyan-400 bg-clip-text text-transparent">
-              AV
-            </div>
+            <Image
+              src="/profile-photo.png"
+              alt={personal.name}
+              fill
+              priority
+              unoptimized
+              sizes="(max-width: 640px) 80vw, 384px"
+              className="object-cover object-[center_36%]"
+            />
           </div>
         </motion.div>
       </div>

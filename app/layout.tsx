@@ -8,7 +8,7 @@ const siteUrl = "https://aashishvishavkarma.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${personal.name} — Senior Android Developer`,
+    default: `${personal.name} — Senior Software Developer`,
     template: `%s — ${personal.name}`,
   },
   description: personal.summary,
@@ -25,14 +25,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${personal.name} — Senior Android Developer`,
+    title: `${personal.name} — Senior Software Developer`,
     description: personal.summary,
     siteName: personal.name,
+    images: [
+      {
+        url: "/social-preview.png",
+        alt: `${personal.name} — Senior Software Developer`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${personal.name} — Senior Android Developer`,
+    title: `${personal.name} — Senior Software Developer`,
     description: personal.summary,
+    images: ["/social-preview.png"],
   },
   robots: { index: true, follow: true },
 };
