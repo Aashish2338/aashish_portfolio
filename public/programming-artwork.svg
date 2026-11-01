@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" fill="none">
+  <defs>
+    <linearGradient id="background" x1="25" y1="20" x2="568" y2="735" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1728"/>
+      <stop offset=".52" stop-color="#050B16"/>
+      <stop offset="1" stop-color="#02050B"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="130" y1="192" x2="486" y2="524" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#164E73" stop-opacity=".85"/>
+      <stop offset=".5" stop-color="#0D2845" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#071527" stop-opacity=".98"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="162" y1="258" x2="430" y2="429" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8CF8F0"/>
+      <stop offset=".48" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="cube" x1="352" y1="420" x2="476" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity=".16"/>
+    </linearGradient>
+    <radialGradient id="aura" cx="0" cy="0" r="1" gradientTransform="matrix(0 252 -250 0 300 383)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#075985" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#02050B" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="90" y="130" width="430" height="490" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="softGlow" x="138" y="191" width="360" height="332" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" stroke="#38BDF8" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="750" rx="38" fill="url(#background)"/>
+  <rect width="600" height="750" rx="38" fill="url(#aura)"/>
+  <rect x="1" y="1" width="598" height="748" rx="37" fill="url(#grid)" opacity=".58"/>
+  <path d="M0 176h600M0 575h600" stroke="#38BDF8" stroke-opacity=".08"/>
+  <circle cx="92" cy="178" r="2" fill="#67E8F9"/>
+  <circle cx="92" cy="178" r="9" stroke="#22D3EE" stroke-opacity=".28"/>
+  <circle cx="510" cy="562" r="2" fill="#67E8F9"/>
+  <circle cx="510" cy="562" r="9" stroke="#22D3EE" stroke-opacity=".28"/>
+
+  <path d="M66 310h56l28 28M478 260h36v-45h24M85 495h52l22-22M472 478h47v43" stroke="#22D3EE" stroke-opacity=".45" stroke-width="2"/>
+  <circle cx="122" cy="310" r="4" fill="#67E8F9"/>
+  <circle cx="538" cy="215" r="4" fill="#67E8F9"/>
+  <circle cx="159" cy="473" r="4" fill="#67E8F9"/>
+  <circle cx="519" cy="521" r="4" fill="#67E8F9"/>
+
+  <g filter="url(#glow)" opacity=".56">
+    <rect x="118" y="188" width="365" height="316" rx="30" fill="#06B6D4"/>
+  </g>
+  <g transform="rotate(-5 300 343)">
+    <rect x="124" y="190" width="360" height="314" rx="28" fill="url(#glass)" stroke="#38BDF8" stroke-opacity=".76" stroke-width="2"/>
+    <path d="M125 232h358" stroke="#38BDF8" stroke-opacity=".3"/>
+    <circle cx="153" cy="212" r="5" fill="#67E8F9" fill-opacity=".92"/>
+    <circle cx="172" cy="212" r="5" fill="#38BDF8" fill-opacity=".72"/>
+    <circle cx="191" cy="212" r="5" fill="#3B82F6" fill-opacity=".72"/>
+    <rect x="423" y="203" width="38" height="18" rx="9" fill="#0E7490" fill-opacity=".4" stroke="#67E8F9" stroke-opacity=".42"/>
+    <circle cx="435" cy="212" r="3" fill="#67E8F9"/>
+    <path d="M154 267h79M154 292h50M154 317h69M154 342h43M154 408h65M154 433h48M154 458h77" stroke="#67E8F9" stroke-opacity=".58" stroke-width="5" stroke-linecap="round"/>
+    <path d="M246 267h48M220 292h65M238 317h34M209 342h68M233 408h32M215 433h61M245 458h35" stroke="#38BDF8" stroke-opacity=".38" stroke-width="5" stroke-linecap="round"/>
+    <rect x="318" y="254" width="124" height="42" rx="10" fill="#08233A" stroke="#22D3EE" stroke-opacity=".35"/>
+    <path d="m337 275 9 9 17-19" stroke="#67E8F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M373 275h47" stroke="#67E8F9" stroke-opacity=".65" stroke-width="4" stroke-linecap="round"/>
+    <rect x="318" y="310" width="124" height="42" rx="10" fill="#08233A" stroke="#38BDF8" stroke-opacity=".3"/>
+    <circle cx="344" cy="331" r="8" stroke="#38BDF8" stroke-width="3"/>
+    <path d="M363 331h57" stroke="#38BDF8" stroke-opacity=".6" stroke-width="4" stroke-linecap="round"/>
+    <rect x="318" y="366" width="124" height="42" rx="10" fill="#08233A" stroke="#38BDF8" stroke-opacity=".3"/>
+    <path d="M336 386h16m-8-8v16M371 387h49" stroke="#67E8F9" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>
+    <rect x="318" y="422" width="124" height="42" rx="10" fill="#08233A" stroke="#38BDF8" stroke-opacity=".3"/>
+    <path d="M338 443h10m12 0h10m12 0h37" stroke="#38BDF8" stroke-opacity=".6" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#softGlow)" opacity=".68">
+    <path d="m211 358-49 43 49 43m108-86 49 43-49 43m-20-106-42 126" stroke="#22D3EE" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="m211 358-49 43 49 43m108-86 49 43-49 43m-20-106-42 126" stroke="url(#cyan)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(356 438)">
+    <path d="m62 0 62 35v71l-62 36L0 106V35L62 0Z" fill="url(#cube)" stroke="#67E8F9" stroke-opacity=".9" stroke-width="2"/>
+    <path d="m0 35 62 36 62-36M62 71v71M31 18l62 36v71M93 18 31 54v71" stroke="#67E8F9" stroke-opacity=".85" stroke-width="2"/>
+    <path d="m62 0 62 35v71l-62 36L0 106V35L62 0Z" stroke="#38BDF8" stroke-opacity=".38" stroke-width="8"/>
+  </g>
+
+  <g transform="translate(74 555)">
+    <rect width="452" height="90" rx="20" fill="#07111F" fill-opacity=".92" stroke="#164E63" stroke-width="1.5"/>
+    <circle cx="28" cy="28" r="5" fill="#22D3EE"/>
+    <text x="48" y="33" fill="#67E8F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="600">developer@studio</text>
+    <text x="28" y="66" fill="#A5F3FC" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16"><tspan fill="#22D3EE">const</tspan><tspan> build = </tspan><tspan fill="#A5F3FC">() =&gt; </tspan><tspan fill="#C4B5FD">"great ideas"</tspan></text>
+    <rect x="427" y="54" width="2" height="18" rx="1" fill="#67E8F9"/>
+  </g>
+
+  <rect x="1" y="1" width="598" height="748" rx="37" stroke="#0E7490" stroke-opacity=".5" stroke-width="2"/>
+</svg>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { aboutHighlights, personal, stats } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 
@@ -54,10 +55,14 @@ export function About() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-cyan-500/15 blur-2xl pointer-events-none" />
-          <div className="flex aspect-[4/5] items-center justify-center rounded-[2rem] border-2 backdrop-blur-xl transition-all duration-300 border-cyan-600/25 bg-gradient-to-br from-white via-cyan-50 to-teal-50 shadow-[0_12px_40px_rgba(8,145,178,0.12)] dark:border-cyan-400/35 dark:bg-gradient-to-br dark:from-[#0B1528] dark:via-[#050A14] dark:to-[#020408] dark:shadow-[0_0_40px_rgba(0,242,254,0.15)]">
-            <span className="font-display text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-cyan-800 to-teal-700 dark:from-white dark:via-cyan-200 dark:to-cyan-400">
-              AV
-            </span>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-2 border-cyan-600/25 bg-[#050A14] shadow-[0_12px_40px_rgba(8,145,178,0.12)] dark:border-cyan-400/35 dark:shadow-[0_0_40px_rgba(0,242,254,0.15)]">
+            <Image
+              src="/programming-artwork.svg"
+              alt="Glowing code editor and 3D cube illustration"
+              fill
+              sizes="(max-width: 1024px) 80vw, 384px"
+              className="object-cover"
+            />
           </div>
         </motion.div>
 
