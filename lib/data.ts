@@ -138,6 +138,8 @@ export type Project = {
   description: string;
   tech: string[];
   playStoreUrl?: string;
+  githubUrl?: string;
+  demoUrl?: string;
   iconUrl?: string;
   status?: string;
 };
@@ -338,27 +340,6 @@ export type Testimonial = {
 
 // TODO: replace with real, permissioned testimonials before deploying
 export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Delivered a complex Compose migration ahead of schedule without a single regression in production.",
-    name: "Arpit Sharma",
-    title: "Product manager",
-    group: "Manager",
-  },
-  {
-    quote:
-      "One of the most reliable Android engineers I've worked with — architecture decisions always held up as the app scaled.",
-    name: "Shaili Saini",
-    title: "Engineering lead",
-    group: "Team",
-  },
-  {
-    quote:
-      "Understood our business needs quickly and translated them into a clean, performant mobile experience.",
-    name: "Greenusys Technologies",
-    title: "Client",
-    group: "Client",
-  },
 ];
 
 export const navLinks = [

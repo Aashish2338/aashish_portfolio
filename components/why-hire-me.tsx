@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { whyHireMe } from "@/lib/data";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 export function WhyHireMe() {
   return (
@@ -30,8 +30,11 @@ export function WhyHireMe() {
                 across teams, and delivering solutions built to evolve with
                 business needs.
               </p>
-              <a href="#contact" className="mt-8 inline-block">
-                <Button size="lg">Hire me</Button>
+              <a
+                href="#contact"
+                className={buttonVariants({ size: "lg", className: "mt-8" })}
+              >
+                Hire me
               </a>
             </div>
 

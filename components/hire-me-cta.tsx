@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Mail, Rocket } from "lucide-react";
 import { personal } from "@/lib/data";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 export function HireMeCta() {
   return (
@@ -27,18 +27,30 @@ export function HireMeCta() {
               an existing app &mdash; I&apos;m ready when you are.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="#contact">
-                <Button size="lg">Hire me</Button>
+              <a href="#contact" className={buttonVariants({ size: "lg" })}>
+                Hire me
               </a>
-              <a href="#contact">
-                <Button variant="outline" size="lg" className="border-slate-300 text-slate-800 hover:border-cyan-600 hover:text-cyan-700 dark:border-paper/20 dark:text-paper dark:hover:border-android dark:hover:text-android">
-                  <Calendar size={16} /> Schedule meeting
-                </Button>
+              <a
+                href="#contact"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                  className:
+                    "border-slate-300 text-slate-800 hover:border-cyan-600 hover:text-cyan-700 dark:border-paper/20 dark:text-paper dark:hover:border-android",
+                })}
+              >
+                <Calendar size={16} /> Schedule meeting
               </a>
-              <a href={`mailto:${personal.email}`}>
-                <Button variant="ghost" size="lg" className="text-slate-700 hover:text-cyan-700 dark:text-paper dark:hover:text-android">
-                  <Mail size={16} /> Email me
-                </Button>
+              <a
+                href={`mailto:${personal.email}`}
+                className={buttonVariants({
+                  variant: "ghost",
+                  size: "lg",
+                  className:
+                    "text-slate-700 hover:text-cyan-700 dark:text-paper dark:hover:text-android",
+                })}
+              >
+                <Mail size={16} /> Email me
               </a>
             </div>
           </div>

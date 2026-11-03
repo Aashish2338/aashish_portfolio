@@ -30,8 +30,8 @@ export function Footer() {
             <a
               key={label}
               href={href}
-              target="_blank"
-              rel="noreferrer"
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
               aria-label={label}
               className="focus-ring flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 text-ink/60 hover:border-android hover:text-android-dark dark:border-white/10 dark:text-paper/60"
             >

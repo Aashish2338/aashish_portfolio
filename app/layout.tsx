@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { personal } from "@/lib/data";
+import { siteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,10 +19,9 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const siteUrl = "https://aashishvishavkarma.dev";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: { canonical: siteUrl },
   title: {
     default: `${personal.name} — Senior Software Developer`,
     template: `%s — ${personal.name}`,

@@ -1,62 +1,74 @@
 # Aashish Vishavkarma — portfolio
 
-Premium, animated personal portfolio built with Next.js 15, React 19,
-TypeScript, Tailwind CSS, Framer Motion, and shadcn-style components.
+Animated personal portfolio built with Next.js 15, React 19, TypeScript,
+Tailwind CSS, and Framer Motion. The project is configured for a static export
+so it can be deployed to Hostinger shared hosting.
 
-## Before you deploy
+## Before deploying
 
-A few things are intentionally left as placeholders — fill these in first:
+1. Verify the email, phone number, location, and social links in `lib/data.ts`.
+2. Replace `public/resume.pdf` if the published CV needs updating.
+3. Add only real testimonials that you have permission to publish to
+   `lib/data.ts`. The testimonials section stays hidden until at least one is
+   provided.
+4. Add project `githubUrl` and `demoUrl` values in `lib/data.ts` when those
+   destinations are public. Missing destinations are not shown as dead links.
+5. The configured domain is `aashishvishavkarma.com`, matching `CNAME`.
+   Update `lib/site.ts` and `CNAME` together if the domain changes.
+6. Configure EmailJS as described below. Its public key and `NEXT_PUBLIC_*`
+   settings are included in browser code by design; never put private service
+   credentials in these variables.
 
-1. **Contact details** — `lib/data.ts` → `personal` object (email, phone,
-   location, GitHub, LinkedIn). Search for `TODO`.
-2. **Profile photo** — replace the `AV` monogram blocks in
-   `components/hero.tsx` and `components/about.tsx` with an actual
-   `next/image` of you.
-3. **Resume PDF** — replace `public/resume.pdf` (currently a placeholder
-   text file) with your real CV.
-4. **Testimonials** — `lib/data.ts` → `testimonials` array is placeholder
-   copy. Only use real quotes you have permission to publish.
-5. **Project links** — Google Play / GitHub / live demo links in
-   `components/projects.tsx` are `#` placeholders; wire up real URLs.
-6. **Domain** — `app/layout.tsx`, `app/sitemap.ts`, and `app/robots.ts`
-   use `https://aashishvishavkarma.dev` as a placeholder domain.
+## Contact form (EmailJS)
 
-## EmailJS setup (contact form)
-
-1. Create a free account at [emailjs.com](https://www.emailjs.com).
-2. Create an email service and a template with `name`, `email`, `subject`,
+1. Create an EmailJS service and template with `name`, `email`, `subject`, and
    `message` variables.
-3. Copy `.env.example` to `.env.local` and fill in your service ID,
-   template ID, and public key.
+2. Copy `.env.example` to `.env.local` and set the service ID, template ID, and
+   public key.
+3. Restrict allowed origins and enable the provider's available abuse
+   protections. This static site validates submissions in the browser; it has
+   no server-side API or server-side validation.
 
-If these environment variables are missing, the form will show an error
-instead of reporting a false success and will provide your direct email address.
+When EmailJS is not configured or a send fails, the form displays an error and
+provides a direct email address instead of reporting a false success.
 
-## Local development
+## Local development and checks
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Visit `http://localhost:3000`.
+Run the checks and build before deploying:
 
-## Deploy
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build
+```
 
-This project is Vercel-ready — push to a Git repo and import it at
-[vercel.com/new](https://vercel.com/new). Add the same `NEXT_PUBLIC_EMAILJS_*`
-env vars in the Vercel project settings.
+`npm run start` serves the generated `out/` directory locally and therefore
+requires a successful build first. It is a static preview server, not the
+Next.js server runtime.
 
-## Fonts
+## Hostinger static deployment
 
-Google Fonts (Inter, Poppins) are loaded via `<link>` tags in
-`app/layout.tsx` rather than `next/font/google`, so no build-time network
-access to Google's font CDN is required in restricted environments. This
-works identically once deployed.
+1. Run the checks and `npm run build`.
+2. Upload the **contents** of `out/` to the domain's document root (commonly
+   `public_html`).
+3. Keep the existing `CNAME` record aligned with the domain configured in
+   `lib/site.ts`.
+4. Set the three EmailJS public environment variables in `.env.local` before
+   building if the contact form should send messages. Static output contains
+   these public values, so do not use secrets.
 
-## Notes
+The Google fonts are fetched by `next/font/google` during the build and emitted
+as local assets; visitors do not need to fetch fonts from Google's CDN.
 
-- Dark mode is the default theme; toggle via the navbar button.
-- Respects `prefers-reduced-motion`.
-- Blog section was scoped as a placeholder per the brief — not built out
-  as a full CMS-backed blog.
+## Implemented features
+
+The repository includes portfolio sections, project filtering, a theme
+switcher, resume download, contact form, and cursor/scroll animations. It does
+not currently include an AI chatbot, CV builder integration, or backend API.
+The blog was not implemented.

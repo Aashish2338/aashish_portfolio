@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Menu, X } from "lucide-react";
 import { navLinks, personal } from "@/lib/data";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { getResumeDownloadName } from "@/lib/utils";
 
@@ -22,6 +22,17 @@ export function Navbar() {
   useEffect(() => {
     setDownloadName(getResumeDownloadName());
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <motion.header
@@ -41,7 +52,10 @@ export function Navbar() {
           AV<span className="text-cyan-700 dark:text-android">.</span>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav
+          aria-label="Primary navigation"
+          className="hidden items-center gap-8 lg:flex"
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -55,20 +69,25 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
-          <a href={personal.resumeUrl} download={downloadName}>
-            <Button variant="outline" size="sm">
-              <Download size={14} /> CV
-            </Button>
+          <a
+            href={personal.resumeUrl}
+            download={downloadName}
+            className={buttonVariants({ variant: "outline", size: "sm" })}
+          >
+            <Download size={14} /> CV
           </a>
-          <a href="#contact">
-            <Button size="sm">Hire me</Button>
+          <a href="#contact" className={buttonVariants({ size: "sm" })}>
+            Hire me
           </a>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
+            type="button"
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls={open ? "mobile-navigation" : undefined}
             onClick={() => setOpen((v) => !v)}
             className="focus-ring flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 dark:border-white/10"
           >
@@ -84,7 +103,11 @@ export function Navbar() {
           exit={{ opacity: 0, height: 0 }}
           className="container mt-2"
         >
-          <div className="glass-card flex flex-col gap-1 p-4">
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+            className="glass-card flex flex-col gap-1 p-4"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -95,10 +118,14 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="mt-2">
-              <Button className="w-full">Hire me</Button>
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ className: "mt-2 w-full" })}
+            >
+              Hire me
             </a>
-          </div>
+          </nav>
         </motion.div>
       )}
     </motion.header>

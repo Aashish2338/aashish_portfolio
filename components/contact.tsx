@@ -7,6 +7,12 @@ import emailjs from "@emailjs/browser";
 import { CheckCircle2, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { personal } from "@/lib/data";
 import { getEmailJsConfig } from "@/lib/emailjs-config";
+import {
+  isValidContactEmail,
+  isValidContactMessage,
+  isValidContactName,
+  isValidContactSubject,
+} from "@/lib/contact-validation";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -106,7 +112,12 @@ export function Contact() {
                 </div>
               );
               return href ? (
-                <a key={label} href={href} target="_blank" rel="noreferrer">
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                >
                   {content}
                 </a>
               ) : (
@@ -152,43 +163,103 @@ export function Contact() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <Input
+                  id="contact-name"
                   placeholder="Your name"
-                  {...register("name", { required: true })}
+                  maxLength={100}
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={errors.name ? "contact-name-error" : undefined}
+                  {...register("name", {
+                    required: "Enter your name.",
+                    validate: (value) =>
+                      isValidContactName(value) ||
+                      "Use a name between 1 and 100 characters.",
+                  })}
                 />
+                <label htmlFor="contact-name" className="sr-only">
+                  Your name
+                </label>
                 {errors.name && (
-                  <p className="mt-1 text-xs text-red-500">Enter your name.</p>
+                  <p id="contact-name-error" className="mt-1 text-xs text-red-500">
+                    {errors.name.message}
+                  </p>
                 )}
               </div>
               <div>
                 <Input
+                  id="contact-email"
                   type="email"
                   placeholder="name@company.com"
-                  {...register("email", { required: true })}
+                  maxLength={254}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? "contact-email-error" : undefined}
+                  {...register("email", {
+                    required: "Enter your email address.",
+                    validate: (value) =>
+                      isValidContactEmail(value) ||
+                      "Enter a valid email address (maximum 254 characters).",
+                  })}
                 />
+                <label htmlFor="contact-email" className="sr-only">
+                  Email address
+                </label>
                 {errors.email && (
-                  <p className="mt-1 text-xs text-red-500">Enter a valid email.</p>
+                  <p id="contact-email-error" className="mt-1 text-xs text-red-500">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
             </div>
 
             <div>
               <Input
+                id="contact-subject"
                 placeholder="Subject"
-                {...register("subject", { required: true })}
+                maxLength={150}
+                aria-invalid={Boolean(errors.subject)}
+                aria-describedby={
+                  errors.subject ? "contact-subject-error" : undefined
+                }
+                {...register("subject", {
+                  required: "Add a subject.",
+                  validate: (value) =>
+                    isValidContactSubject(value) ||
+                    "Use a subject between 1 and 150 characters.",
+                })}
               />
+              <label htmlFor="contact-subject" className="sr-only">
+                Subject
+              </label>
               {errors.subject && (
-                <p className="mt-1 text-xs text-red-500">Add a subject.</p>
+                <p id="contact-subject-error" className="mt-1 text-xs text-red-500">
+                  {errors.subject.message}
+                </p>
               )}
             </div>
 
             <div>
               <Textarea
+                id="contact-message"
                 rows={5}
+                maxLength={5000}
                 placeholder="Tell me about your project"
-                {...register("message", { required: true })}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={
+                  errors.message ? "contact-message-error" : undefined
+                }
+                {...register("message", {
+                  required: "Write a message.",
+                  validate: (value) =>
+                    isValidContactMessage(value) ||
+                    "Use a message between 1 and 5,000 characters.",
+                })}
               />
+              <label htmlFor="contact-message" className="sr-only">
+                Message
+              </label>
               {errors.message && (
-                <p className="mt-1 text-xs text-red-500">Write a message.</p>
+                <p id="contact-message-error" className="mt-1 text-xs text-red-500">
+                  {errors.message.message}
+                </p>
               )}
             </div>
 

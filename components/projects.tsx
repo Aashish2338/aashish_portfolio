@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Smartphone, Sparkles } from "lucide-react";
+import Image from "next/image";
 import { projectFilters, projects } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -27,6 +28,8 @@ export function Projects() {
           {projectFilters.map((f) => (
             <button
               key={f}
+              type="button"
+              aria-pressed={filter === f}
               onClick={() => setFilter(f)}
               className={cn(
                 "focus-ring rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
@@ -78,27 +81,16 @@ export function Projects() {
               >
                 <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-slate-100 via-cyan-50 to-teal-50 dark:from-ink-slate dark:to-ink">
                   {project.iconUrl ? (
-                    <a
-                      href={project.playStoreUrl ?? "#"}
-                      onClick={(e) => !project.playStoreUrl && e.preventDefault()}
-                      target={project.playStoreUrl ? "_blank" : undefined}
-                      rel={project.playStoreUrl ? "noopener noreferrer" : undefined}
-                      aria-label={`${project.name} app icon`}
-                      title={project.playStoreUrl ? "Open in Google Play" : project.name}
-                      className={cn(
-                        "transition-transform duration-300",
-                        project.playStoreUrl ? "hover:scale-110" : "cursor-default"
-                      )}
-                    >
-                      <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg sm:h-24 sm:w-24">
-                        <img
-                          src={project.iconUrl}
-                          alt={`${project.name} app icon`}
-                          className="h-full w-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    </a>
+                    <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg sm:h-24 sm:w-24">
+                      <Image
+                        src={project.iconUrl}
+                        alt={`${project.name} app icon`}
+                        width={96}
+                        height={96}
+                        unoptimized
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                   ) : (
                     <Smartphone
                       className="text-android/70 transition-transform duration-300 group-hover:scale-110"
@@ -159,22 +151,28 @@ export function Projects() {
                           <Smartphone size={14} />
                         </span>
                       )}
-                      <a
-                        href="#"
-                        onClick={(e) => e.preventDefault()}
-                        aria-label={`${project.name} on GitHub`}
-                        className="focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 text-ink/60 hover:border-android hover:text-android-dark dark:border-white/10 dark:text-paper/60"
-                      >
-                        <Github size={14} />
-                      </a>
-                      <a
-                        href="#"
-                        onClick={(e) => e.preventDefault()}
-                        aria-label={`${project.name} live demo`}
-                        className="focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 text-ink/60 hover:border-android hover:text-android-dark dark:border-white/10 dark:text-paper/60"
-                      >
-                        <ExternalLink size={14} />
-                      </a>
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} on GitHub`}
+                          className="focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 text-ink/60 hover:border-android hover:text-android-dark dark:border-white/10 dark:text-paper/60"
+                        >
+                          <Github size={14} />
+                        </a>
+                      )}
+                      {project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} live demo`}
+                          className="focus-ring flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 text-ink/60 hover:border-android hover:text-android-dark dark:border-white/10 dark:text-paper/60"
+                        >
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
                     </div>
                     {project.status && (
                       <span className="text-[11px] font-medium text-amber-600 dark:text-amber-400">

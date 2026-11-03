@@ -45,35 +45,38 @@ export function LoadingScreen() {
   const [targetProgress, setTargetProgress] = useState(0);
   const [displayProgress, setDisplayProgress] = useState(0);
 
-  // Smooth 60fps progress interpolation
   const currentProgressRef = useRef(0);
-  const targetProgressRef = useRef(0);
-  targetProgressRef.current = targetProgress;
 
   useEffect(() => {
+    if (!loading) return;
+
     let animId: number;
     const updateProgress = () => {
-      const diff = targetProgressRef.current - currentProgressRef.current;
-      if (Math.abs(diff) > 0.2) {
-        currentProgressRef.current += diff * 0.15;
-      } else {
-        currentProgressRef.current = targetProgressRef.current;
+      const diff = targetProgress - currentProgressRef.current;
+      if (Math.abs(diff) <= 0.2) {
+        currentProgressRef.current = targetProgress;
+        setDisplayProgress(targetProgress);
+        return;
       }
+
+      currentProgressRef.current += diff * 0.15;
       setDisplayProgress(Math.min(100, Math.round(currentProgressRef.current)));
       animId = requestAnimationFrame(updateProgress);
     };
     animId = requestAnimationFrame(updateProgress);
     return () => cancelAnimationFrame(animId);
-  }, []);
+  }, [loading, targetProgress]);
 
-  // Sequence timings
   useEffect(() => {
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    if (!loading) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setLoading(false);
+      return;
+    }
 
-    // Trigger initial progress
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
     setTargetProgress(18);
 
-    // Stagger module activation
     TECH_MODULES.forEach((_, index) => {
       const t = setTimeout(() => {
         setActiveModuleIdx(index);
@@ -83,7 +86,6 @@ export function LoadingScreen() {
       timeouts.push(t);
     });
 
-    // Stagger stream logs
     LOG_STREAM.forEach((_, index) => {
       const t = setTimeout(() => {
         setLogIdx(index);
@@ -91,7 +93,6 @@ export function LoadingScreen() {
       timeouts.push(t);
     });
 
-    // Complete sequence
     const completeTimeout = setTimeout(() => {
       setTargetProgress(100);
       setActiveModuleIdx(TECH_MODULES.length);
@@ -102,7 +103,6 @@ export function LoadingScreen() {
     }, 1850);
     timeouts.push(completeTimeout);
 
-    // Keyboard escape listener
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
         setLoading(false);
@@ -114,7 +114,7 @@ export function LoadingScreen() {
       timeouts.forEach(clearTimeout);
       window.removeEventListener("keydown", onKey);
     };
-  }, []);
+  }, [loading]);
 
   return (
     <AnimatePresence>

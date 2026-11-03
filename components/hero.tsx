@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import { personal } from "@/lib/data";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { getResumeDownloadName } from "@/lib/utils";
 
 const floatingChips = [
@@ -149,13 +149,15 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-8 flex flex-wrap items-center gap-4"
           >
-            <a href="#contact">
-              <Button size="lg">Hire me</Button>
+            <a href="#contact" className={buttonVariants({ size: "lg" })}>
+              Hire me
             </a>
-            <a href={personal.resumeUrl} download={downloadName}>
-              <Button variant="outline" size="lg">
-                <Download size={16} /> Download resume
-              </Button>
+            <a
+              href={personal.resumeUrl}
+              download={downloadName}
+              className={buttonVariants({ variant: "outline", size: "lg" })}
+            >
+              <Download size={16} /> Download resume
             </a>
           </motion.div>
 
@@ -173,8 +175,10 @@ export function Hero() {
               <a
                 key={label}
                 href={href}
-                target="_blank"
-                rel="noreferrer"
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  href.startsWith("http") ? "noopener noreferrer" : undefined
+                }
                 aria-label={label}
                 className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border transition-all border-slate-300 bg-white/80 text-slate-600 hover:border-cyan-600 hover:text-cyan-700 hover:shadow-[0_4px_16px_rgba(8,145,178,0.15)] dark:border-white/10 dark:bg-[#060D1A]/80 dark:text-paper/70 dark:hover:border-cyan-400 dark:hover:text-cyan-300 dark:hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]"
               >

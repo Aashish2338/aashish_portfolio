@@ -10,7 +10,7 @@ export function Skills() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="section-eyebrow mx-auto">Skills</p>
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-            A full-stack Android toolkit
+            A full-stack Android, Web and Backend toolkit
           </h2>
           <p className="mt-4 text-ink/70 dark:text-paper/70">
             From language fundamentals to architecture, tooling, and cloud
