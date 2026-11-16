@@ -52,6 +52,7 @@ export const aboutHighlights = [
   "Navigation component",
   "AI & ML integration",
   "AI Tools(Codex, OpenAI, ChatGPT, Gemini, Claude)",
+  "Media Player Implementation",
 ];
 
 export type SkillCategory = {
@@ -93,9 +94,19 @@ export const skillCategories: SkillCategory[] = [
     items: ["Git", "GitHub", "Bitbucket", "Jira", "CI/CD"],
   },
   {
+    title: "AI Implementation",
+    level: 85,
+    items: ["ChatGPT", "OpenAI", "Claude", "Codex", "Gemini"],
+  },
+  {
+    title: "Media Player Implementation",
+    level: 85,
+    items: ["YouTube", "ExoPlayer", "Vimeo Player", "Zoom Meeting"],
+  },
+  {
     title: "Databases",
     level: 87,
-    items: ["SQLite", "Room", "MySQL"],
+    items: ["SQLite", "Room", "MySQL", "PostgreSQL", "MongoDB"],
   },
 ];
 
@@ -273,6 +284,16 @@ export const services: Service[] = [
       "Scalable server-side architectures, RESTful APIs, and secure database solutions powered by Spring Boot and Node.js.",
   },
   {
+    title: "AI implementation",
+    description:
+      "Integrating AI capabilities with OpenAI, ChatGPT, Claude, Gemini, and Codex into practical app workflows.",
+  },
+  {
+    title: "Media player implementation",
+    description:
+      "Building video and meeting experiences with YouTube, ExoPlayer, Vimeo, and Zoom integrations.",
+  },
+  {
     title: "Code deployment",
     description:
       "Automated CI/CD pipelines, build workflows, and seamless deployment across cloud platforms and app stores.",
@@ -319,6 +340,8 @@ export const whyHireMe = [
   "Android Development",
   "Web Development",
   "Backend Developer",
+  "AI Implementation",
+  "Media Player Implementation",
   "Code Deployment",
   "Clean architecture",
   "Production apps",

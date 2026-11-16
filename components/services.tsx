@@ -12,6 +12,7 @@ import {
   Server,
   Sparkles,
   Users,
+  Video,
   Wrench,
   Zap,
 } from "lucide-react";
@@ -22,6 +23,8 @@ const serviceIcons: Record<string, LucideIcon> = {
   "Web development": Globe,
   "Backend development": Server,
   "Backend Developer": Server,
+  "AI implementation": Sparkles,
+  "Media player implementation": Video,
   "Code deployment": CloudUpload,
   "Jetpack Compose migration": Layers,
   "Kotlin Multiplatform": Sparkles,
